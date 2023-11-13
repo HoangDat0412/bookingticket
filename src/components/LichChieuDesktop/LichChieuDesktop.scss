@@ -1,0 +1,21 @@
+.lichChieu{
+    color: #fff;
+    
+}
+.wrapper{
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    img{
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+    span{
+        color: #000;
+    }
+}
+ 

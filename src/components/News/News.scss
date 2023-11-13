@@ -1,0 +1,53 @@
+.fullImg {
+    width: 100%;
+    height: auto;
+    border-radius: 5;
+  }
+.news{
+  .ant-tabs-nav {
+    height: 50px;
+    overflow-y: auto;
+  }
+
+  .row{
+    width: 100%;
+  }
+}
+//   .appBar {
+//     background-color: transparent;
+//     color: black;
+//     boxShadow: none;
+//     & .MuiTabs-indicator{
+//       height: 0 // ẩn gạch dưới
+//     }
+//   }
+.repons {
+    padding-left: 16px;
+    flex: 0 0 50%;
+    max-width: 50%;
+
+  }
+@media screen and (max-width : 579px){
+.repons{
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+}
+}
+
+.news {
+    color: black;
+    &:hover {
+      color: black;
+      text-decoration: none,
+    }
+    & div{
+      & h4 {
+        font-size: 17px;
+        font-weight: bold;
+      }
+      & p {
+        font-size: 13px
+      }
+    }
+  }

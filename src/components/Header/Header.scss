@@ -1,0 +1,66 @@
+
+@media screen and (max-width:768px){
+    .navbar-nav{
+        display: none;
+    }
+}
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    .drawer_header{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 15px;
+        button{
+            border-radius: none !important;
+        }
+    }
+    
+.dangNhap_header{
+  display: flex;
+  align-items: center;
+    transition: all 0.3s;
+
+    button{
+        font-size: 18px;
+    }
+  &:hover{
+    button{
+        color: #fb4226;
+    }
+  }
+    
+}
+}
+.nav-link{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 15px;
+    transition: all 0.3s;
+    &:hover{
+        color: #fb4226 !important;
+    }
+}
+.navbar-toggler{
+    border: none;
+    &:hover{
+        border: none;
+        box-shadow: none;
+    }
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+.user_header{
+    font-weight: 500;   
+    transition: all 0.3s;
+    &:hover{
+        color: #fb4226;
+    }
+}

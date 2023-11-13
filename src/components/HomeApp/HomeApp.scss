@@ -1,0 +1,66 @@
+.mobileApp {
+    //./assets/img/mobile/backapp.jpg
+    background-image: url("../../assets/img/mobile/backapp.jpg");
+    background-size: cover;
+    background-position: center;
+    height: fit-content;
+    color: white;
+    // [theme.breakpoints.down("lg")]: {
+    //   height: "auto",
+    // },
+    p{
+        color: #fff;
+    }
+  }
+
+  .mainMaxWidth {
+    max-width: 940px;
+    margin: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: fit-content;
+  }
+  .mobileApp__left {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    a {
+        color: white;
+    }
+  }
+  .textLeft1 {
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  .mobileApp__right1 {
+    position: relative;
+    padding: 0;
+  }
+  .bgmobile {
+    padding: 0 28%;
+    width: 100%;
+    display: block;
+    height: auto
+  }
+  .slick-mobile {
+    position: absolute !important;
+    padding: 1.5% 29.1% 1.3% 29.3%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99%;
+    div{
+      border-radius: 7%;
+      background-color:#fff;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+
+  }
