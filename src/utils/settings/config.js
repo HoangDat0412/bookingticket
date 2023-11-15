@@ -1,4 +1,4 @@
-export const DOMAIN = "http://movieapi.cyberlearn.vn";
+export const DOMAIN = "https://movieapi.cyberlearn.vn";
 export const TOKEN = "accessToken";
 export const USER_LOGIN = "USER_LOGIN";
 export const STATUS_CODE = {
@@ -7,7 +7,7 @@ export const STATUS_CODE = {
     SERVER_ERROR: 500,
   };
 
-export const GPID = "GP02";
+export const GPID = "GP01";
 const currentUser = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user"))
   : null;

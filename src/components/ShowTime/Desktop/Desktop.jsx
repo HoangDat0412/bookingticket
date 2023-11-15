@@ -50,7 +50,7 @@ export default function Desktop() {
     <div className='desktop'>
 <Slider {...settings} >
       {
-        listFilmDefault.slice(0,12).map((movie,index)=>{
+        listFilmDefault?.map((movie,index)=>{
           return <MovieItem movie={movie} index={index}></MovieItem>
         })
       }

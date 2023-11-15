@@ -13,6 +13,13 @@ export class UserManagermentService extends baseService {
         // {taiKhoan:'',matKhau:''}
         return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
     };
+    
+  layThongTinNguoiDung = () => {
+    return this.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`);
+  };
+  postCapNhapThongTinNguoiDung = (user) => {
+    return this.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, user);
+  };
 }
 
 export const userManagermentService = new UserManagermentService()

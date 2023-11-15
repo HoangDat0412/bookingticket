@@ -9,6 +9,7 @@ import HomeMenu from '../../components/HomeMenu/HomeMenu'
 import { getDanhSachHeThongRapAction } from '../../redux/reducers/CinemaManagerReducer'
 import News from '../../components/News/News'
 import HomeApp from '../../components/HomeApp/HomeApp'
+import { layThongTinNguoiDungApi } from '../../redux/reducers/UserManagermentReducer'
 
 export default function Home() {
 
@@ -16,6 +17,9 @@ export default function Home() {
   useEffect(()=>{
     dispatch(getDanhSachPhimAction())
     dispatch(getDanhSachHeThongRapAction())
+  },[])
+  useEffect(()=>{
+    dispatch(layThongTinNguoiDungApi())
   },[])
 
   const {heThongRapChieu} = useSelector(state => state.cinemaManagerReducer)

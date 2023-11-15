@@ -58,7 +58,7 @@ export default function Header() {
           {
             userLogin ?  (
               <div className="navbar-nav">
-              <NavLink className='mx-2 user_header' to='/login'>
+              <NavLink className='mx-2 user_header' to='/profile'>
                 <AccountCircleIcon sx={{ fontSize: 40 }} style={{paddingRight:"10px"}}/>
                 <span>{userLogin.hoTen}</span>
               </NavLink>

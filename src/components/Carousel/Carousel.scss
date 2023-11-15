@@ -1,27 +1,80 @@
-.carousel{
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  img {
     width: 100%;
-    overflow: hidden;
-    img{
-        width: 100%;
-        
+  }
+
+  .Arrow {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+
+    z-index: 2;
+    width: 50px;
+    height: 100px;
+    color: #d8d8d8 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      color: #fb4226 !important;
     }
+  }
+  i {
+    font-size: 40px;
+  }
+}
 
-    .Arrow {
-        position: absolute;
-        top: 55%;
-        transform: translateY(-50%);
-    
-        z-index: 2;
-        width: 50px;
-        height: 100px;
-        color: #d8d8d8 !important;
-        cursor: pointer;
-        transition: all .2s;
-        &:hover { color: #fb4226 !important };
-
+.jss425 {
+  position: relative;
+  .jss426 {
+    width: 100%;
+    height: 100%;
+  }
+  .jss427 {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to top, #000, transparent 20%);
+  }
+  .jss664 {
+    height: 70px;
+    width: 70px;
+    top: 50%;
+    left: 50%;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: 0 0;
+    transition: all 0.2s;
+    .jss662 {
+      &:hover{
+        opacity: 0.7;
       }
-      i{
-        font-size: 40px;
-      }
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+    }
+  }
+  &:hover{
+    .jss664{
+      opacity: 1;
+    }
+  }
+}
 
+
+.ant-modal .ant-modal-content {
+  height: 400px;
+  padding: 0;
+}
+.ant-modal .ant-modal-footer{
+  display: none;
+}
+.ant-modal .ant-modal-body {
+  height: 100%;
 }
