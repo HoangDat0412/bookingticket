@@ -2,14 +2,14 @@ import React from 'react'
 import "./Login.scss"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import {useNavigate} from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import logoTix from "../../assets/img/logoTix.png"
-import {useSelector,useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { loginActionApi } from '../../redux/reducers/UserManagermentReducer';
 export default function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const {userLogin} = useSelector(state => state.userManagermentReducer)
+    const { userLogin } = useSelector(state => state.userManagermentReducer)
     const formik = useFormik({
         initialValues: {
             taikhoan: "",
@@ -21,7 +21,7 @@ export default function Login() {
         }),
         onSubmit: values => {
             dispatch(loginActionApi(values));
-            if(userLogin){
+            if (userLogin) {
                 navigate('/')
             }
         },
@@ -30,7 +30,11 @@ export default function Login() {
     return (
         <div className='jss2526'>
             <div className="signin">
-                <img src={logoTix} alt="logoTix" className="logoTix" />
+
+                <NavLink to="/">
+                    <img src={logoTix} alt="logoTix" className="logoTix" />
+                </NavLink>
+
                 <div className="mb-3 mt-2">
                     <p className="text" style={{
                         fontWeight: "600"
@@ -41,7 +45,7 @@ export default function Login() {
                 <div>
                     <form onSubmit={formik.handleSubmit}>
                         <div className='form-group position-relative mb-2'>
-                            <label htmlFor="taikhoan" style={{ fontSize:"18px"}}>Tài Khoản</label>
+                            <label htmlFor="taikhoan" style={{ fontSize: "18px" }}>Tài Khoản</label>
                             <input
                                 id="taikhoan"
                                 name="taikhoan"
@@ -52,11 +56,11 @@ export default function Login() {
                                 value={formik.values.taikhoan}
                             />
                             {formik.touched.taikhoan && formik.errors.taikhoan ? (
-                                <div style={{color:"red"}}>{formik.errors.taikhoan}</div>
+                                <div style={{ color: "red" }}>{formik.errors.taikhoan}</div>
                             ) : null}
                         </div>
                         <div className='form-group position-relative mb-2'>
-                            <label htmlFor="matKhau" style={{ fontSize:"18px"}}>Mật Khẩu</label>
+                            <label htmlFor="matKhau" style={{ fontSize: "18px" }}>Mật Khẩu</label>
                             <input
                                 id="matKhau"
                                 name="matKhau"
@@ -67,32 +71,32 @@ export default function Login() {
                                 value={formik.values.matKhau}
                             />
                             {formik.touched.matKhau && formik.errors.matKhau ? (
-                                <div style={{color:"red"}}>{formik.errors.matKhau}</div>
+                                <div style={{ color: "red" }}>{formik.errors.matKhau}</div>
                             ) : null}
                         </div>
                         <button
-                style={{
-                  backgroundColor: "#3E63b6",
-                  borderColor: "#3E63b6",
-                  cursor: "pointer",
-                }}
-                type="submit"
-                className="btn btn-success mt-3 container"
-              >
-                Log in
-              </button>
+                            style={{
+                                backgroundColor: "#3E63b6",
+                                borderColor: "#3E63b6",
+                                cursor: "pointer",
+                            }}
+                            type="submit"
+                            className="btn btn-success mt-3 container"
+                        >
+                            Log in
+                        </button>
 
-              <p className="mt-2">
-                Or
-                <span
-                  className="text-primary"
-                  style={{ cursor: "pointer" }}
-                  onClick={()=> navigate('/register')}
-                >
-                  {" "}
-                  register now!
-                </span>
-              </p>
+                        <p className="mt-2">
+                            Or
+                            <span
+                                className="text-primary"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => navigate('/register')}
+                            >
+                                {" "}
+                                register now!
+                            </span>
+                        </p>
                     </form>
                 </div>
             </div>

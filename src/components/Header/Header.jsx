@@ -23,7 +23,6 @@ export default function Header() {
     if (location.pathname === "/") {
       scroller.scrollTo(id, {
         duration: 800,
-        smooth: "easeInOutQuart",
       });
     } else {
      

@@ -14,9 +14,12 @@ export default function Checkout() {
   console.log("id đặt vé ",id);
     const dispatch = useDispatch()
   useEffect(()=>{
-    dispatch(quanLyDatVeActionApi(id))
-
-  
+    if(userLogin){
+        dispatch(quanLyDatVeActionApi(id))
+    }
+    else{
+        navigate("/login")
+    }
   },[])
 
   const {chiTietPhongVe,danhSachGheDangDat,danhSachGheKhachDat} = useSelector(state => state.datVeReducer)
@@ -136,12 +139,12 @@ return (
           <hr />
           <div className="my-3">
               <i>Email</i> <br />
-              {userLogin.email}
+              {userLogin?.email}
           </div>
           <hr />
           <div className="my-3">
               <i>Phone</i> <br />
-              {userLogin.soDT}
+              {userLogin?.soDT}
           </div>
           <hr />
           <div className="mb-0 h-full flex flex-col items-center" style={{ marginBottom: 0 }}             onClick={() => {

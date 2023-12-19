@@ -30,16 +30,17 @@ function App() {
           <Route path="/" element={<CheckoutTemplate />}>
             <Route path="checkout/:id" element={<Checkout />} />
           </Route>
+
           <Route path="/" element={<UserTemplate />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
+          
           <Route path="/admin" element={<AdminTemplate/>}>
           <Route path="films" element={<Films/>}/>
           <Route path="films/addnew" element={<Addnew/>}/>
            <Route path="films/edit/:id" element={<Edit/>}/>
-           {/* <Route path="films/addnew" element={<AddNew/>}/>
-           <Route path="films/edit/:id" element={<Edit/>}/>
+           {/* 
            <Route path="users" element={<Dashboard/>}/>
            <Route path="films/showtime/:id" element={<Showtime/>}/> */}
           </Route>

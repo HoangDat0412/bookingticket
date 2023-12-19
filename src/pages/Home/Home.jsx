@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Home.scss"
 import Carousel from '../../components/Carousel/Carousel'
 import ShowTime from '../../components/ShowTime/ShowTime'
@@ -12,7 +12,7 @@ import HomeApp from '../../components/HomeApp/HomeApp'
 import { layThongTinNguoiDungApi } from '../../redux/reducers/UserManagermentReducer'
 
 export default function Home() {
-
+  const [home,setHome] = useState()
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getDanhSachPhimAction())

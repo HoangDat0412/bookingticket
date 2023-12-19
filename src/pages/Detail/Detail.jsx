@@ -6,10 +6,11 @@ import { Tabs } from 'antd';
 import moment from "moment";
 import "moment/locale/vi";
 import { useParams } from "react-router-dom";
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import LichChieuDesktop from '../../components/LichChieuDesktop/LichChieuDesktop';
 import formatDate from '../../utils/settings/formatDate';
 import { setMovieDetailAction } from '../../redux/reducers/MovieDetail';
+import { scroller } from "react-scroll";
 
 export default function Detail() {
   useEffect(() => {
@@ -20,80 +21,80 @@ export default function Detail() {
 
   const dispatch = useDispatch()
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(setMovieDetailAction(param.id))
-  },[])
-  const {movieDetailShowtimes} = useSelector(state => state.movieDetail)
+  }, [])
+  const { movieDetailShowtimes } = useSelector(state => state.movieDetail)
   const filmDetail = movieDetailShowtimes;
   console.log(filmDetail);
   let arr = [
     {
       name: "LỊCH CHIẾU",
       content: (<div>
-         {<LichChieuDesktop data={filmDetail.heThongRapChieu}/>}
+        {<LichChieuDesktop data={filmDetail.heThongRapChieu} />}
       </div>)
     },
     {
       name: "THÔNG TIN",
       content: (<div className='detail_infomation'>
-                  <div className={`row text-white detailMovie`}>
-            <div className="col-sm-6 col-xs-12">
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>
-                  Ngày công chiếu
-                </p>
-                <p className={`float-left contentInfo`}>
-                  {formatDate(filmDetail?.ngayKhoiChieu?.slice(0, 10)).YyMmDd}
-                </p>
-              </div>
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>Đạo diễn</p>
-                <p className={`float-left contentInfo`}>
-                  {" "}
-                  Adam Wingard{" "}
-                </p>
-              </div>
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>
-                  Diễn viên
-                </p>
-                <p className={`float-left contentInfo`}>
-                  Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby Brown
-                </p>
-              </div>
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>Thể Loại</p>
-                <p className={`float-left contentInfo`}>
-                  hành động, giả tưởng, ly kỳ, thần thoại
-                </p>
-              </div>
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>
-                  Định dạng
-                </p>
-                <p className={`float-left contentInfo`}>
-                  2D/Digital
-                </p>
-              </div>
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>
-                  Quốc Gia SX
-                </p>
-                <p className={`float-left contentInfo`}>Mỹ</p>
-              </div>
+        <div className={`row text-white detailMovie`}>
+          <div className="col-sm-6 col-xs-12">
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>
+                Ngày công chiếu
+              </p>
+              <p className={`float-left contentInfo`}>
+                {formatDate(filmDetail?.ngayKhoiChieu?.slice(0, 10)).YyMmDd}
+              </p>
             </div>
-            <div className="col-sm-6 col-xs-12">
-              <div className="row mb-2">
-                <p className={`float-left contentTitle`}>Nội dung</p>
-              </div>
-              <div className="row mb-2">
-                <p>
-                  {filmDetail?.moTa}
-                
-                </p>
-              </div>
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>Đạo diễn</p>
+              <p className={`float-left contentInfo`}>
+                {" "}
+                Adam Wingard{" "}
+              </p>
+            </div>
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>
+                Diễn viên
+              </p>
+              <p className={`float-left contentInfo`}>
+                Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby Brown
+              </p>
+            </div>
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>Thể Loại</p>
+              <p className={`float-left contentInfo`}>
+                hành động, giả tưởng, ly kỳ, thần thoại
+              </p>
+            </div>
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>
+                Định dạng
+              </p>
+              <p className={`float-left contentInfo`}>
+                2D/Digital
+              </p>
+            </div>
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>
+                Quốc Gia SX
+              </p>
+              <p className={`float-left contentInfo`}>Mỹ</p>
             </div>
           </div>
+          <div className="col-sm-6 col-xs-12">
+            <div className="row mb-2">
+              <p className={`float-left contentTitle`}>Nội dung</p>
+            </div>
+            <div className="row mb-2">
+              <p>
+                {filmDetail?.moTa}
+
+              </p>
+            </div>
+          </div>
+        </div>
       </div>)
     },
     {
@@ -129,7 +130,11 @@ export default function Detail() {
             <p> {formatDate(filmDetail?.ngayKhoiChieu?.slice(0, 10)).YyMmDd}</p>
             <p class="detail_infomation_p"><span class="jss1382">C18</span> {filmDetail?.tenPhim}</p>
             <p>{`${filmDetail.thoiLuong ?? "120"} phút - ${filmDetail.danhGia} Tix`} - 2D/Digital</p>
-            <button class="button_detail_content">Mua vé</button>
+            <button className="button_detail_content" onClick={() => {
+              scroller.scrollTo("datve", {
+                duration: 800,
+              });
+            }}>Mua vé</button>
           </div>
 
           <div className="rate">
@@ -147,7 +152,7 @@ export default function Detail() {
               <CircularProgress
                 variant="determinate"
                 size="100%"
-                value={filmDetail.danhGia*10}
+                value={filmDetail.danhGia * 10}
                 className="fabProgress"
                 color="secondary"
               />
@@ -163,9 +168,9 @@ export default function Detail() {
 
       </div>
 
-      <div className="detail_tabs" style={{
-                            margin: "auto",
-                            maxWidth: "940px",
+      <div className="detail_tabs" id='datve' style={{
+        margin: "auto",
+        maxWidth: "940px",
       }}>
         <Tabs
           style={{
